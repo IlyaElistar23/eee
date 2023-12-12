@@ -20,6 +20,7 @@ function App() {
   const changeList = () => {
 
     setListState([...listState, {id: uuidv4(), title: inputText}])
+    console.log(listState);
 
   }
 
