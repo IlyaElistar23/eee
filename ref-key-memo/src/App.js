@@ -1,17 +1,27 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import List from './List';
 import {useRef, useState} from 'react'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
-  const list = ['React', 'JavaScript', 'HTML/CSS'];
+
+  const list = [
+    {id: uuidv4(), title: 'React'},
+    {id: uuidv4(), title:'JavaScript'},
+    {id: uuidv4(), title:'HTML/CSS'}]
+  
   const [listState, setListState] = useState(list)
+
   const [inputText, setInputText] = useState('')
-  const changeList = () => {
-    setListState([...listState, inputText])
-    console.log(listState);
-  }
+
   const inputRef = useRef(null)
+  
+  const changeList = () => {
+
+    setListState([...listState, {id: uuidv4(), title: inputText}])
+
+  }
 
   return (
     <div className="App">
