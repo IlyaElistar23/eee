@@ -19,16 +19,16 @@ function App() {
   
   const changeList = () => {
 
-    setListState([...list, {id: uuidv4(), title: inputText}]) 
-     console.log(list)
+    setListState([...listState, {id: uuidv4(), title: inputText}]) 
 
   }
+
   const changeEl = (id) => {
-    // return list.id ? setState({...list, title: `!!!${list.title}`}) : list.title
+
     setListState(listState.map(el => (el.id === id? {...el, title: `!!!${el.title}`} : el)))
-    // console.log(id, listState);
+    
 }
- 
+
   return (
     <div className="App">
       <header className="App-header">
