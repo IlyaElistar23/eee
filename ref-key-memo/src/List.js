@@ -1,18 +1,10 @@
 import { Fragment, useState } from "react"
 import React from "react"
 
-const List = ({list}) => {
-
-    const [listState, setState] = useState(list)
-
-    const changeEl = (id) => {
-        // return list.id ? setState({...list, title: `!!!${list.title}`}) : list.title
-        setState(listState.map(el => (el.id === id? {...el, title: `!!!${el.title}`} : el)))
-        console.log(id, listState);
-    }
+const List = ({list, changeEl}) => {
     
     return <ul>
-        {listState.map(item => {
+        {list.map(item => {
             return (
             <Fragment>
                 <li key={item.id}>
