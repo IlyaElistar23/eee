@@ -29,7 +29,7 @@ function App() {
   const themeToggler = () => theme === LightTheme ? setTheme(DarkTheme) : setTheme(LightTheme)
 
   return (
-    <ThemeContext.Provider theme={theme === LightTheme ? LightTheme: DarkTheme}>
+    <ThemeContext.Provider theme={theme}>
       <>
         <div className='App'>
           <List list={listState} setListState={setListState} />

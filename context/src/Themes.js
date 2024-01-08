@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
 const StyledLightTheme = styled.div`
-color: # 363537;
-toggleBorder: # FFF;
+color: black;
+background-color: white;
 font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
 transition: all 0.50s linear;
 `
 
 const StyledDarkTheme = styled.div`
-color: # FFF;
-background-color: # 999;
+color: white;
+background-color: black;
 font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
 transition: all 0.50s linear;
 `

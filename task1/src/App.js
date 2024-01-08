@@ -1,28 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import ChangeUsers from './ChangeUsers';
-import { Fragment, useRef, useState } from 'react'
-import List from './List';
-import AddName from './AddName';
-import Names from './Names';
-
+import { lightTheme, darkTheme } from "./Themes";
+import { GlobalStyle } from "./GlobalStyles";
+import { useState } from "react";
+import { ThemeProvider } from 'styled-components'
+import { useDarkMode } from "./useDarkMode";
+import Toggle from "./Toggler";
 
 function App() {
-  const [state, setState] = useState(['Lindsey', 'Mark', 'Tom', 'Ilya'])
-  const addTop = (name) => {
-    setState(state => [name, ...state])
-  }
-  const addBottom = (name) => {
-    setState(state => [...state, name])
-  }
+  const [theme, themeToggler] = useDarkMode()
+
+  const themeMode = () => theme === 'light' ? lightTheme : darkTheme;
   return (
-      <div className="App">
-        <Fragment>
-          <Names names = {state}/>
-          <AddName addTop = {addTop} addBottom = {addBottom}/>
-        </Fragment>
-      </div>
-  );
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyle/>
+        <div className="App">
+          <Toggle theme={theme} toggleTheme={themeToggler}/> 
+        </div>
+      </>
+    </ThemeProvider>
+  )
 }
 
 export default App;
