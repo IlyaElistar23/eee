@@ -4,6 +4,7 @@ import { useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 import ThemeContext from './ThemeContext';
 import { LightTheme, DarkTheme } from './Themes';
+import Wrapper from './Wrapper';
 
 function App() {
 
@@ -24,13 +25,13 @@ function App() {
 
   }
 
-  const [theme, setTheme] = useState(LightTheme)
+  const [theme, setTheme] = useState('light')
 
-  const themeToggler = () => theme === LightTheme ? setTheme(DarkTheme) : setTheme(LightTheme)
+  const themeToggler = () => theme === 'light' ? setTheme('dark') : setTheme('light')
 
   return (
-    <ThemeContext.Provider theme={theme}>
-      <>
+    <ThemeContext.Provider theme={theme === 'light' ? LightTheme : DarkTheme}>
+      <Wrapper>
         <div className='App'>
           <List list={listState} setListState={setListState} />
           <input
@@ -43,7 +44,7 @@ function App() {
           <button onClick={() => inputRef.current.focus()}>Focus</button>
           <button onClick={themeToggler}>Переключить тему</button>
         </div>
-      </>
+      </Wrapper>
     </ThemeContext.Provider>
 
   );
