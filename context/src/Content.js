@@ -7,7 +7,7 @@ import ThemeContext from './ThemeContext';
 const StyledContent = styled.div`
 background-color: ${props => props.theme.body};
 color: ${props => props.theme.text};
-padding-top: 10rem;
+padding-top: 1rem;
 text-align: center;
 min-height: 100vh;
 `
